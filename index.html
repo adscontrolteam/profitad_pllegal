@@ -360,7 +360,11 @@ input {
         <div class="form-box">
             <h2>Получите разбор вашей ниши</h2>
 
-            <form id="leadForm">
+            <form 
+                  action="https://script.google.com/macros/s/AKfycbxc_n9xOMHz4kqVES0PzJXBHxxuIJ8zd_3E5wzxr9U6hz6PgajOyVxQR0XqD0jEHqCiWA/exec" 
+                  method="POST" 
+                  onsubmit="sendForm(event)"
+                >
                 <input name="name" type="text" placeholder="Ваше имя" required>
                 <input name="phone" type="tel" placeholder="Телефон / WhatsApp" required>
                 <button class="btn" type="submit">Оставить заявку</button>
@@ -479,37 +483,31 @@ input {
 
     
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("leadForm");
+function sendForm(e) {
+  e.preventDefault();
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const form = e.target;
+  const button = form.querySelector('button');
 
-    const name = form.querySelector('[name="name"]').value;
-    const phone = form.querySelector('[name="phone"]').value;
+  button.disabled = true;
+  button.innerText = "Отправка...";
 
-    const message =
-`🔥 НОВАЯ ЗАЯВКА
+  const data = new FormData(form);
 
-👤 Имя: ${name}
-📞 Телефон: ${phone}
-🌐 Сайт: ${window.location.href}`;
-
-    const token = "8722854264:AAEU7GSlqBBOohXXG1DVcJcXb9wuJz-XNLM";
-    const chat_id = "386904598";
-
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
-
-    // Отправка без редиректа — в скрытый iframe
-    const iframe = document.querySelector('iframe[name="tgFrame"]');
-    iframe.src = url;
-
-    alert("Заявка отправлена!");
-    form.reset();
+  fetch(form.action, {
+    method: 'POST',
+    body: data
+  })
+  .then(() => {
+    window.location.href = "/thank-you.html";
+  })
+  .catch(() => {
+    alert("Ошибка отправки. Попробуйте еще раз");
+    button.disabled = false;
+    button.innerText = "Оставить заявку";
   });
-});
+}
 </script>
-    
    
 </body>
 </html>
