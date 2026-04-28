@@ -479,31 +479,47 @@ input {
 
     
 <script>
-const form = document.getElementById("leadForm");
+document.addEventListener("DOMContentLoaded", function() {
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
+    const form = document.getElementById("leadForm");
 
-    const data = {
-        name: form.querySelector('[name="name"]').value,
-        phone: form.querySelector('[name="phone"]').value,
-    };
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
 
-    fetch("https://script.google.com/macros/s/AKfycbwJ2DusgVcO-P1-8JyWaGuwbfhzhc2ABjIBh2W2iVfiQ2CQ4F9NqDub_VNhBkptddh8Sw/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(() => {
-        alert("Заявка отправлена");
-        form.reset();
-    })
-    .catch((err) => {
-        console.error(err);
-        alert("Ошибка отправки");
+        const name = form.querySelector('[name="name"]').value;
+        const phone = form.querySelector('[name="phone"]').value;
+
+        const message = `
+🔥 НОВАЯ ЗАЯВКА
+
+👤 Имя: ${name}
+📞 Телефон: ${phone}
+🌐 Сайт: ${window.location.href}
+        `;
+
+        const token = "8722854264:AAEU7GSlqBBOohXXG1DVcJcXb9wuJz-XNLM";
+        const chat_id = "386904598";
+
+        fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id: chat_id,
+                text: message
+            })
+        })
+        .then(() => {
+            alert("Заявка отправлена!");
+            form.reset();
+        })
+        .catch(() => {
+            alert("Ошибка отправки");
+        });
+
     });
+
 });
 </script>
     
