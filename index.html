@@ -331,6 +331,7 @@ input {
 </style>
 </head>
 
+    
 <body>
 
 <!-- HERO -->
@@ -359,7 +360,7 @@ input {
         <div class="form-box">
             <h2>Получите разбор вашей ниши</h2>
 
-            <form>
+            <form id="leadForm">
                 <input type="text" placeholder="Ваше имя" required>
                 <input type="tel" placeholder="Телефон / WhatsApp" required>
                 <input type="text" placeholder="Какая услуга? ВНЖ / карта побыту / другое" required>
@@ -477,5 +478,31 @@ input {
 
 <a href="https://t.me/barshchuk" class="float-btn">Связаться</a>
 
+    <script>
+document.getElementById("leadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+        name: this.name.value,
+        phone: this.phone.value,
+        service: this.service.value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbx0z3LULHNRmYjuKVzhKlGeLHGrW5iv5rQA9SilqxBd/dev", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(() => {
+        alert("Заявка отправлена");
+        this.reset();
+    })
+    .catch(() => {
+        alert("Ошибка отправки");
+    });
+});
+</script>
 </body>
 </html>
