@@ -479,34 +479,34 @@ input {
 
     
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("leadForm");
 
-    const form = document.getElementById("leadForm");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
+    const name = form.querySelector('[name="name"]').value;
+    const phone = form.querySelector('[name="phone"]').value;
 
-        const name = form.querySelector('[name="name"]').value;
-        const phone = form.querySelector('[name="phone"]').value;
-
-        const message = `
-🔥 НОВАЯ ЗАЯВКА
+    const message =
+`🔥 НОВАЯ ЗАЯВКА
 
 👤 Имя: ${name}
 📞 Телефон: ${phone}
-🌐 Сайт: ${window.location.href}
-        `;
+🌐 Сайт: ${window.location.href}`;
 
-        const token = "8722854264:AAEU7GSlqBBOohXXG1DVcJcXb9wuJz-XNLM";
-        const chat_id = "386904598";
+    const token = "8722854264:AAEU7GSlqBBOohXXG1DVcJcXb9wuJz-XNLM";
+    const chat_id = "386904598";
 
-        const text = encodeURIComponent(message);
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
 
+    // Отправка без редиректа — в скрытый iframe
+    const iframe = document.querySelector('iframe[name="tgFrame"]');
+    iframe.src = url;
 
-alert("Заявка отправлена!");
-form.reset();
-    });
-
+    alert("Заявка отправлена!");
+    form.reset();
+  });
 });
 </script>
     
