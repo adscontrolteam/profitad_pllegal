@@ -500,24 +500,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const token = "8722854264:AAEU7GSlqBBOohXXG1DVcJcXb9wuJz-XNLM";
         const chat_id = "386904598";
 
-        fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                chat_id: chat_id,
-                text: message
-            })
-        })
-        .then(() => {
-            alert("Заявка отправлена!");
-            form.reset();
-        })
-        .catch(() => {
-            alert("Ошибка отправки");
-        });
+        const text = encodeURIComponent(message);
 
+window.open(
+`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${text}`,
+"_blank"
+);
+
+alert("Заявка отправлена!");
+form.reset();
     });
 
 });
