@@ -363,7 +363,6 @@ input {
             <form id="leadForm">
                 <input type="text" placeholder="Ваше имя" required>
                 <input type="tel" placeholder="Телефон / WhatsApp" required>
-                <input type="text" placeholder="Какая услуга? ВНЖ / карта побыту / другое" required>
                 <button class="btn" type="submit">Оставить заявку</button>
             </form>
 
@@ -478,14 +477,16 @@ input {
 
 <a href="https://t.me/barshchuk" class="float-btn">Связаться</a>
 
-    <script>
-document.getElementById("leadForm").addEventListener("submit", function(e) {
+    
+<script>
+const form = document.getElementById("leadForm");
+
+form.addEventListener("submit", function(e) {
     e.preventDefault();
 
     const data = {
-        name: this.name.value,
-        phone: this.phone.value,
-        service: this.service.value
+        name: form.querySelector('[name="name"]').value,
+        phone: form.querySelector('[name="phone"]').value,
     };
 
     fetch("https://script.google.com/macros/s/AKfycbwMN_-dan7Q6Ia9gCg4O_hGRoEitfWax3y3HJ3QK1QWGyr9E9ZU6Ct98kid_0XB3S_x0Q/exec", {
@@ -497,12 +498,15 @@ document.getElementById("leadForm").addEventListener("submit", function(e) {
     })
     .then(() => {
         alert("Заявка отправлена");
-        this.reset();
+        form.reset();
     })
-    .catch(() => {
+    .catch((err) => {
+        console.error(err);
         alert("Ошибка отправки");
     });
 });
 </script>
+    
+   
 </body>
 </html>
