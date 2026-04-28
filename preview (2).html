@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROFITAD Agency — Лиды для юристов в Польше</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #111;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.red {
+    color: #d71920;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    background: #d71920;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    background: #d71920;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: 46px;
+    line-height: 1.08;
+    margin: 0 0 20px;
+}
+
+.subtitle {
+    font-size: 20px;
+    line-height: 1.45;
+    margin-bottom: 28px;
+    color: #333;
+}
+
+.planks {
+    display: grid;
+    gap: 12px;
+}
+
+.plank {
+    background: #fff;
+    padding: 15px 18px;
+    border-radius: 14px;
+    border-left: 5px solid #d71920;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    font-weight: bold;
+}
+
+/* FORM BOX */
+.form-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.form-box h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.contact-title {
+    text-align: center;
+    font-weight: bold;
+    margin: 22px 0 12px;
+}
+
+.messengers {
+    display: flex;
+    gap: 12px;
+}
+
+.messengers a {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.telegram {
+    background: #0088cc;
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+/* FOUNDER */
+.founder {
+    margin-top: 18px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    background: #fafafa;
+    padding: 14px;
+    border-radius: 16px;
+}
+
+.founder img {
+    width: 86px;
+    height: 86px;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #ddd;
+}
+
+/* CASE */
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 35px;
+}
+
+.case-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.case-card, .review-photo {
+    background: #fff;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.case-card h3 {
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.stat {
+    background: #f7f7f7;
+    padding: 18px;
+    border-radius: 16px;
+}
+
+.stat span {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.stat strong {
+    font-size: 24px;
+    color: #d71920;
+}
+
+.review-placeholder {
+    height: 100%;
+    min-height: 360px;
+    background: #f1f1f1;
+    border: 2px dashed #ccc;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}
+
+/* REVIEWS */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.review-img {
+    background: #fff;
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+.review-img-box {
+    height: 260px;
+    background: #f1f1f1;
+    border: 2px dashed #ccc;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    text-align: center;
+}
+
+/* FINAL CONTACT */
+.final-contact {
+    background: #111;
+    color: #fff;
+    border-radius: 28px;
+    padding: 40px;
+    text-align: center;
+}
+
+.final-contact h2 {
+    font-size: 34px;
+    margin-top: 0;
+}
+
+.final-contact p {
+    color: #ddd;
+    font-size: 18px;
+}
+
+.final-buttons {
+    display: flex;
+    max-width: 500px;
+    margin: 25px auto 0;
+    gap: 14px;
+}
+
+.final-buttons a {
+    flex: 1;
+    padding: 16px;
+    border-radius: 14px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.float-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #d71920;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* MOBILE */
+@media(max-width: 850px) {
+    .hero,
+    .case-block {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .messengers,
+    .final-buttons {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 40px 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="container">
+    <div class="hero">
+
+        <div>
+            <div class="badge">🇵🇱 Лиды для юристов в Польше</div>
+
+            <h1>
+                Приводим клиентов на услуги 
+                <span class="red">ВНЖ / легализации</span>
+            </h1>
+
+            <div class="subtitle">
+                Строим систему привлечения клиентов через Meta Ads и Google Ads, где вы понимаете стоимость лида, стоимость клиента и окупаемость.
+            </div>
+
+            <div class="planks">
+                <div class="plank">Прогнозируемый поток лидов, клиентов, прибыли</div>
+                <div class="plank">Клиенты на ВНЖ/ПМЖ, карта побыту, легализация</div>
+                <div class="plank">Строим систему под ключ без доп.расходов</div>
+            </div>
+        </div>
+
+        <div class="form-box">
+            <h2>Получите разбор вашей ниши</h2>
+
+            <form>
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Телефон / WhatsApp" required>
+                <input type="text" placeholder="Какая услуга? ВНЖ / карта побыту / другое" required>
+                <button class="btn" type="submit">Оставить заявку</button>
+            </form>
+
+            <div class="contact-title">Или свяжитесь с нами напрямую</div>
+
+            <div class="messengers">
+                <a href="https://t.me/barshchuk" class="telegram">Telegram</a>
+                <a href="https://wa.me/+380684266961" class="whatsapp">WhatsApp</a>
+            </div>
+
+            <div class="founder">
+                <img src="your-photo.jpg" alt="Барщук Сергей">
+                <div>
+                    <strong>Барщук Сергей</strong><br>
+                    Основатель PROFITAD Agency<br>
+                    “Мы делаем доход, а потом рекламу”
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CASE -->
+<section class="container">
+    <h2 class="section-title">Кейс в нише легализации</h2>
+
+    <div class="case-block">
+
+        <div class="case-card">
+            <h3>300 лидов → 105 клиентов</h3>
+            <p>
+                Система привлечения клиентов для услуг легализации.
+                Реклама была построена не просто на заявки, а на понятную экономику: стоимость лида, конверсия и доход.
+            </p>
+
+            <div class="stats">
+                <div class="stat">
+                    <span>Потратили</span>
+                    <strong>3000$</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Лидов</span>
+                    <strong>300</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Клиентов</span>
+                    <strong>105</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Доход</span>
+                    <strong>18 375$</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Подписчик IG</span>
+                    <strong>0.8$</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Просмотр → подписка</span>
+                    <strong>30%</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-photo">
+            <img src="review.jpg" style="width:100%; border-radius:14px;">
+        </div>
+
+    </div>
+</section>
+
+<!-- OTHER REVIEWS -->
+<section class="container">
+    <h2 class="section-title">Другие наши отзывы</h2>
+
+    <div class="reviews-grid">
+
+        <div class="review-img">
+            <img src="review1.jpg" style="width:100%; border-radius:14px;">
+        </div>
+
+        <div class="review-img">
+            <img src="review2.jpg" style="width:100%; border-radius:14px;">
+        </div>
+
+        <div class="review-img">
+           <img src="review3.jpg" style="width:100%; border-radius:14px;">
+        </div>
+
+    </div>
+</section>
+
+<!-- FINAL CONTACT -->
+<section class="container">
+    <div class="final-contact">
+        <h2>Связаться с нами</h2>
+        <p>
+            Напишите нам в мессенджер — покажем, как адаптировать систему под ваши юридические услуги в Польше.
+        </p>
+
+        <div class="final-buttons">
+            <a href="https://t.me/barshchuk" class="telegram">Telegram</a>
+            <a href="https://wa.me/+380684266961" class="whatsapp">WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<a href="https://t.me/barshchuk" class="float-btn">Связаться</a>
+
+</body>
+</html>
