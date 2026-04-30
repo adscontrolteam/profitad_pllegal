@@ -393,8 +393,8 @@ input {
             <div class="contact-title">Или свяжитесь с нами напрямую</div>
 
             <div class="messengers">
-                <a href="https://t.me/barshchuk" class="telegram">Telegram</a>
-                <a href="https://wa.me/+380684266961" class="whatsapp">WhatsApp</a>
+                <a href="https://t.me/barshchuk" class="telegram" onclick="fbq('track', 'Contact');">Telegram</a>
+                <a href="https://wa.me/+380684266961" class="whatsapp" onclick="fbq('track', 'Contact');">WhatsApp</a>
             </div>
 
             <div class="founder">
@@ -499,7 +499,7 @@ input {
     </div>
 </section>
 
-<a href="https://t.me/barshchuk" class="float-btn">Связаться</a>
+<a href="https://t.me/barshchuk" class="float-btn" onclick="fbq('track', 'Contact');">Связаться</a>
 
     
 <script>
@@ -519,6 +519,7 @@ function sendForm(e) {
     body: data
   })
   .then(() => {
+    fbq('track', 'Lead'); // 🔥 событие лид
     window.location.href = "/thank-you.html";
   })
   .catch(() => {
