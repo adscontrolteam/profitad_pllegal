@@ -226,20 +226,6 @@ input {
     color: #d71920;
 }
 
-.review-placeholder {
-    height: 100%;
-    min-height: 360px;
-    background: #f1f1f1;
-    border: 2px dashed #ccc;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    text-align: center;
-    padding: 20px;
-}
-
 /* REVIEWS */
 .reviews-grid {
     display: grid;
@@ -252,18 +238,16 @@ input {
     border-radius: 18px;
     padding: 14px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.review-img-box {
-    height: 260px;
-    background: #f1f1f1;
-    border: 2px dashed #ccc;
+.review-img img {
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    text-align: center;
 }
 
 /* FINAL CONTACT */
@@ -450,7 +434,7 @@ input {
         </div>
 
         <div class="review-photo">
-            <img src="review.jpeg" style="width:100%; border-radius:14px;">
+            <img src="review.jpeg" alt="Основной отзыв" style="width:100%; height:auto; display:block; border-radius:14px;">
         </div>
 
     </div>
@@ -462,15 +446,15 @@ input {
     <div class="reviews-grid">
 
         <div class="review-img">
-            <img src="review1.jpg" style="width:100%; border-radius:14px;">
+            <img src="review1.jpg" alt="Отзыв 1">
         </div>
 
         <div class="review-img">
-            <img src="review2.png" style="width:100%; border-radius:14px;">
+            <img src="review2.png" alt="Отзыв 2">
         </div>
 
         <div class="review-img">
-           <img src="review3.jpg" style="width:100%; border-radius:14px;">
+           <img src="review3.jpg" alt="Отзыв 3">
         </div>
 
     </div>
